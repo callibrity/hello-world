@@ -2,7 +2,7 @@ version: '3'
 
 services:
   app:
+    image: helloworld-war
     build: .
-    image: test-img
     ports:
       - "9090:8080"
