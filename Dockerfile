@@ -4,7 +4,7 @@ FROM tomcat:latest
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
 # Copy WAR file to Tomcat webapps directory
-COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
+COPY ./target/*.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 9090
 
