@@ -1,11 +1,17 @@
-FROM tomcat:latest
+### Maven Build
+FROM maven:3-jdk-11 as builder
+RUN mkdir -p /build
+COPY . /build
+WORKDIR /build
+RUN mvn clean compile package
 
+
+### Build docker image
+FROM tomcat:latest
 # Remove default ROOT webapp
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
-
-# Copy WAR file to Tomcat webapps directory
-COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
-
+COPY --from=builder /build/target /tom/target
+WORKDIR /tom/target
+RUN cp *.war /usr/local/tomcat/webapps/
 EXPOSE 9090
-
 CMD ["catalina.sh", "run"]
