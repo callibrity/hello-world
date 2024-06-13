@@ -15,4 +15,4 @@ Spring boot application to print hello world.
 - This application is also dockerized
 - It has github workflows to:
   - Build and test the project
-  - Build and push the new image to docker hub(This needs to change to Callibrity's docker hub)
+  - Build and push the new image to github packages and docker hub(This needs to change to Callibrity's docker hub)
