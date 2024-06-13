@@ -1,5 +1,5 @@
 ### Maven Build
-FROM maven:3-jdk-11 as builder
+FROM maven:3-openjdk-17 as builder
 RUN mkdir -p /build
 COPY . /build
 WORKDIR /build
