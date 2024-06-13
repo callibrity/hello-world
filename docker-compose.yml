@@ -4,6 +4,6 @@ services:
   app:
     image: helloworld-war
     build:
-      context: ./hello-world
+      context: hello-world/
     ports:
       - "9090:8080"
