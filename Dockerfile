@@ -3,7 +3,7 @@ FROM tomcat:latest
 # Remove default ROOT webapp
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
-RUN cd var/lib/docker/tmp
+RUN echo $PATH
 
 RUN ls
 # Copy WAR file to Tomcat webapps directory
