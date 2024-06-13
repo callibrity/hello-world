@@ -36,4 +36,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: farheenahmed19/hello-world:latest
+          tags: ${{ steps.meta.outputs.tags }}
