@@ -11,7 +11,7 @@ Spring boot application to print hello world.
 - Github workflows
 
 ## Features
-- Prints hello world when run locally after navigating to http://localhost:9090/
+- Prints hello world when run locally after navigating to http://localhost:8080/
 - This application is also dockerized
 - It has github workflows to:
   - Build and test the project

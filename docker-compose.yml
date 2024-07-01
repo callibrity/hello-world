@@ -6,4 +6,4 @@ services:
     build:
       context: .
     ports:
-      - "9090:8080"
+      - "8080:8080"
