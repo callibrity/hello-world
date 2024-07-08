@@ -1,5 +1,5 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:us-east-2:211125712788:task-definition/spring-hello-task:1",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-2:211125712788:task-definition/spring-hello-task:5",
   "containerDefinitions": [
     {
       "name": "spring-hello-container",
