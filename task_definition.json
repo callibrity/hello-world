@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "spring-hello-container",
-      "image": "211125712788.dkr.ecr.us-east-2.amazonaws.com/hello-world",
+      "image": "211125712788.dkr.ecr.us-east-2.amazonaws.com/hello-world:latest",
       "cpu": 0,
       "portMappings": [
         {
