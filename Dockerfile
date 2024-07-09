@@ -14,4 +14,3 @@ COPY --from=builder /build/target /tom/target
 WORKDIR /tom/target
 RUN cp *.war /usr/local/tomcat/webapps/
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
