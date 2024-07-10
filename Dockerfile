@@ -1,8 +1,5 @@
-### Build docker image
-FROM tomcat:latest
-# Copy your WAR file to the webapps directory
-COPY target/hello-world-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
-# Expose the port that Tomcat is running on (default is 8080)
+FROM eclipse-temurin:18-jdk
+WORKDIR /app
+COPY target/hello-world-0.0.1-SNAPSHOT.jar /app/hello-world.jar
 EXPOSE 8080
-# Start Tomcat
-CMD ["catalina.sh", "run"]
+CMD ["java","-jar","/app/hello-world.jar"]
