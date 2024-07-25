@@ -3,7 +3,7 @@ name: "Terraform AWS service apply"
 # Trigger when the terraform plan workflow completes successfully.
 on:
   workflow_run:
-    workflows: [Terraform AWS service Plan]
+    workflows: [Terraform AWS service plan]
     types: [completed]
 
 defaults:

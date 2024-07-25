@@ -2,6 +2,9 @@ name: "Terraform AWS base plan"
 
 # Trigger when there are changes to the aws base terraform folder
 on:
+  workflow_run:
+    workflows: [Build and Publish Docker image]
+    types: [completed]
   workflow_dispatch:
   push:
     paths:
