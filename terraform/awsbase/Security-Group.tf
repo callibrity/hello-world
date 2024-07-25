@@ -28,3 +28,7 @@ resource "aws_security_group" "SG" {
     Name = "SG"
   }
 }
+
+output "sg_id" {
+  value = aws_security_group.SG.id
+}

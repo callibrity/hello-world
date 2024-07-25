@@ -76,3 +76,15 @@ resource "aws_route_table_association" "RTA3" {
   subnet_id      = aws_subnet.subnet3.id
   route_table_id = aws_route_table.RT.id
 }
+
+output "subnet_1_id" {
+  value = aws_subnet.subnet1.id
+}
+
+output "subnet_2_id" {
+  value = aws_subnet.subnet2.id
+}
+
+output "subnet_3_id" {
+  value = aws_subnet.subnet3.id
+}

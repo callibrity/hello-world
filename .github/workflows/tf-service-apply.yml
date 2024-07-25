@@ -1,22 +1,22 @@
-name: "Terraform Apply"
+name: "Terraform AWS service apply"
 
-# Trigger when commits are pushed to the master branch
+# Trigger when the terraform plan workflow completes successfully.
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: [Terraform AWS service Plan]
+    types: [completed]
 
 defaults:
   run:
-    working-directory: ./terraform
+    working-directory: ./terraform/awsecstaskservice
 
 jobs:
   terraform-apply:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: "Terraform Apply"
     runs-on: ubuntu-latest
     steps:
       # Checkout the code
-      # Marketplace: https://github.com/marketplace/actions/checkout
       - name: "Setup - Checkout"
         uses: actions/checkout@v2.1.0
 
@@ -31,7 +31,6 @@ jobs:
           echo "aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> ~/.aws/credentials
 
       # Downloads a specific version of Terraform CLI and adds it to PATH
-      # Marketplace: https://github.com/marketplace/actions/hashicorp-setup-terraform
       - name: "Setup - Terraform CLI"
         uses: hashicorp/setup-terraform@v3
 

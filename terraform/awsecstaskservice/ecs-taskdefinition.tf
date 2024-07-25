@@ -1,7 +1,9 @@
+variable "iam_role_arn" {}
+
 resource "aws_ecs_task_definition" "TD" {
   family                   = "nginx"
   requires_compatibilities = ["FARGATE"]
-  execution_role_arn       = aws_iam_role.iam-role.arn
+  execution_role_arn       = var.iam_role_arn
   network_mode             = "awsvpc"
   cpu                      = 1024
   memory                   = 2048

@@ -20,3 +20,7 @@ resource "aws_alb_listener" "Listener" {
     type             = "forward"
   }
 }
+
+output "lb_listener" {
+  value = aws_alb_listener.Listener
+}
