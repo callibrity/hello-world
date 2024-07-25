@@ -1,3 +1,7 @@
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+
 resource "aws_vpc" "vpc" {
   cidr_block = "10.0.0.0/16"
 
@@ -8,26 +12,15 @@ resource "aws_vpc" "vpc" {
 
 resource "aws_subnet" "subnet1" {
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = "10.0.1.0/24"
+  cidr_block              = "10.20.${10+count.index}.0/24"
+  count = length(data.aws_availability_zones.available.names)
+  availability_zone       = data.aws_availability_zones.available.names[count.index]
   map_public_ip_on_launch = true
-  availability_zone       = "us-east-2"
-
   tags = {
     Name = "Subnet1"
   }
 }
 
-
-resource "aws_subnet" "subnet2" {
-  vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = "10.0.2.0/24"
-  map_public_ip_on_launch = true
-  availability_zone       = "us-east-2"
-
-  tags = {
-    Name = "Subnet2"
-  }
-}
 
 resource "aws_internet_gateway" "IG" {
   vpc_id = aws_vpc.vpc.id
