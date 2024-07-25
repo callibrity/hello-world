@@ -12,7 +12,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
   AWS_REGION: us-east-2
-  S3BUCKET: cf-helloworld-qa-webappdeploymentbucket-zmhw2qcmscac
+  ECR_REPOSITORY: hello-world
 
 jobs:
   push_to_registry:
