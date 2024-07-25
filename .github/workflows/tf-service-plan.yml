@@ -3,7 +3,7 @@ name: "Terraform AWS service plan"
 # Trigger when the project and docker image is built successfully.
 on:
   workflow_run:
-    workflows: [Build and Publish Docker image]
+    workflows: [Terraform AWS base apply]
     types: [completed]
 
 defaults:
