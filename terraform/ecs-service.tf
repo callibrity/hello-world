@@ -21,6 +21,6 @@ resource "aws_ecs_service" "ECS-Service" {
   network_configuration {
     assign_public_ip = true
     security_groups  = [aws_security_group.SG.id]
-    subnets          = [aws_subnet.subnet1.id, aws_subnet.subnet2.id]
+    subnets          = [aws_subnet.subnet1.id, aws_subnet.subnet2.id, aws_subnet.subnet3.id]
   }
 }

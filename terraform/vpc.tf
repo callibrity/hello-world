@@ -12,15 +12,36 @@ resource "aws_vpc" "vpc" {
 
 resource "aws_subnet" "subnet1" {
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = "10.20.${10+count.index}.0/24"
-  count = length(data.aws_availability_zones.available.names)
-  availability_zone       = data.aws_availability_zones.available.names[count.index]
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = "us-east-2a"
   map_public_ip_on_launch = true
   tags = {
     Name = "Subnet1"
   }
 }
 
+
+resource "aws_subnet" "subnet2" {
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = "10.0.2.0/24"
+  map_public_ip_on_launch = true
+  availability_zone       = "us-east-2b"
+
+  tags = {
+    Name = "Subnet2"
+  }
+}
+
+resource "aws_subnet" "subnet3" {
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = "10.0.2.0/24"
+  map_public_ip_on_launch = true
+  availability_zone       = "us-east-2c"
+
+  tags = {
+    Name = "Subnet3"
+  }
+}
 
 resource "aws_internet_gateway" "IG" {
   vpc_id = aws_vpc.vpc.id
@@ -48,5 +69,10 @@ resource "aws_route_table_association" "RTA1" {
 
 resource "aws_route_table_association" "RTA2" {
   subnet_id      = aws_subnet.subnet2.id
+  route_table_id = aws_route_table.RT.id
+}
+
+resource "aws_route_table_association" "RTA3" {
+  subnet_id      = aws_subnet.subnet3.id
   route_table_id = aws_route_table.RT.id
 }
