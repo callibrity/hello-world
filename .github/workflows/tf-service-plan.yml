@@ -5,6 +5,7 @@ on:
   workflow_run:
     workflows: [Terraform AWS base apply]
     types: [completed]
+  workflow_dispatch:
 
 defaults:
   run:

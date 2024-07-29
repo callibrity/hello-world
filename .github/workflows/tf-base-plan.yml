@@ -5,6 +5,7 @@ on:
   workflow_run:
     workflows: [Build and Publish Docker image]
     types: [completed]
+  workflow_dispatch:
 
 defaults:
   run:

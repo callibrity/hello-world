@@ -5,6 +5,7 @@ on:
   workflow_run:
     workflows: [Terraform AWS service plan]
     types: [completed]
+  workflow_dispatch:
 
 defaults:
   run:
