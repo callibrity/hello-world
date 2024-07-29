@@ -1,6 +1,6 @@
 name: "Terraform AWS base apply"
 
-# Trigger when the terraform plan workflow completes successfully and there are changes to the awsbase terraform folder
+# Trigger when the terraform base plan workflow completes successfully.
 on:
   workflow_run:
     workflows: [Terraform AWS base plan]

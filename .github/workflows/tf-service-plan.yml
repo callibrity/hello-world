@@ -1,6 +1,6 @@
 name: "Terraform AWS service plan"
 
-# Trigger when the project and docker image is built successfully.
+# Trigger when the terraform base apply completes successfully.
 on:
   workflow_run:
     workflows: [Terraform AWS base apply]

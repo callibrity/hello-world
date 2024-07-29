@@ -1,6 +1,6 @@
 name: "Terraform AWS base plan"
 
-# Trigger when there are changes to the aws base terraform folder
+# Trigger when the project builds successfully.
 on:
   workflow_run:
     workflows: [Build and Publish Docker image]
