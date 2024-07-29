@@ -47,10 +47,6 @@ data "aws_ecs_task_definition" "TD" {
 }
 
 # Service
-module "awsbase" {
-  source = "../awsbase"
-}
-
 resource "aws_ecs_service" "ECS-Service" {
   name                               = "my-service"
   launch_type                        = "FARGATE"
@@ -61,7 +57,6 @@ resource "aws_ecs_service" "ECS-Service" {
   desired_count                      = 2
   deployment_minimum_healthy_percent = 100
   deployment_maximum_percent         = 200
-  depends_on                         = [module.awsbase]
 
 
   load_balancer {
