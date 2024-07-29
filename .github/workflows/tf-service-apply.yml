@@ -13,7 +13,6 @@ defaults:
 
 jobs:
   terraform-service-apply:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: "Terraform Service Apply"
     runs-on: ubuntu-latest
     steps:
