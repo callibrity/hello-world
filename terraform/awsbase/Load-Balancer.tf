@@ -21,6 +21,6 @@ resource "aws_alb_listener" "Listener" {
   }
 }
 
-output "lb_listener" {
-  value = aws_alb_listener.Listener
+output "lb" {
+  value = aws_lb.LB
 }

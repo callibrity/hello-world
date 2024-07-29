@@ -57,7 +57,7 @@ resource "aws_ecs_service" "ECS-Service" {
   desired_count                      = 2
   deployment_minimum_healthy_percent = 100
   deployment_maximum_percent         = 200
-  depends_on                         = [data.terraform_remote_state.awsbase.outputs.lb_listener, data.terraform_remote_state.awsbase.outputs.iam_role]
+  depends_on                         = [data.terraform_remote_state.awsbase.outputs.lb]
 
 
   load_balancer {
