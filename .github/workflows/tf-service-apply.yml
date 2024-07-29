@@ -11,8 +11,9 @@ defaults:
     working-directory: ./terraform/awsecstaskservice
 
 jobs:
-  terraform-apply:
-    name: "Terraform Apply"
+  terraform-service-apply:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    name: "Terraform Service Apply"
     runs-on: ubuntu-latest
     steps:
       # Checkout the code

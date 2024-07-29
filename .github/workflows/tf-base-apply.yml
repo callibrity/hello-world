@@ -11,9 +11,9 @@ defaults:
     working-directory: ./terraform/awsbase
 
 jobs:
-  terraform-apply:
+  terraform-base-apply:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    name: "Terraform Apply"
+    name: "Terraform Base Apply"
     runs-on: ubuntu-latest
     steps:
       # Checkout the code

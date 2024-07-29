@@ -11,9 +11,9 @@ defaults:
     working-directory: ./terraform/awsecstaskservice
 
 jobs:
-  terraform-plan:
+  terraform-service-plan:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    name: "Terraform Plan"
+    name: "Terraform Service Plan"
     runs-on: ubuntu-latest
     steps:
       # Checkout the code
