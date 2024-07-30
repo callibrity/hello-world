@@ -21,6 +21,16 @@ data "terraform_remote_state" "awsbase" {
   }
 }
 
+# To get the most recent image from ECR
+data "aws_ecr_repository" "hello-world" {
+  name = "hello-world"
+}
+
+data "aws_ecr_image" "latest" {
+  repository_name = data.aws_ecr_repository.hello-world.name
+  most_recent     = true
+}
+
 # Task Definition
 resource "aws_ecs_task_definition" "TD" {
   family                   = "nginx"
@@ -32,7 +42,7 @@ resource "aws_ecs_task_definition" "TD" {
   container_definitions = jsonencode([
     {
       name      = "main-container"
-      image     = "211125712788.dkr.ecr.us-east-2.amazonaws.com/hello-world:latest"
+      image     = "${data.aws_ecr_repository.hello-world.repository_url}@${data.aws_ecr_image.latest.image_digest}"
       cpu       = 1024
       memory    = 2048
       essential = true
