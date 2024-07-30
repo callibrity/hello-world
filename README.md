@@ -1,7 +1,7 @@
 # Hello World
 
 ## Overview
-Spring boot application to print hello world.
+Spring boot application to print hello world and deploy to AWS ECS.
 
 ## Technologies Used
 - Java SDK 18
@@ -21,6 +21,7 @@ Spring boot application to print hello world.
   - Deploy the image from ECR to AWS ECS
 
 ## Terraform
+**NOTE**: Repo in ECR "hello-world" is created manually prior to running any of the ecs task service infrastructure changes.
 - There are three terraform folders, for different infrastructure requirements.
 1) awsstate- This creates s3 buckets to store remote states for the resources created in the other two folders. This needs to run first before the github workflows automatically run the other two folders.
 2) awsbase- This creates the base resources needed to run the tasks and services, such as VPC, subnets, clusters etc. This is automatically executed by the github workflows.
